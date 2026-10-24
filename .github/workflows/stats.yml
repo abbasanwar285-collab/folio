@@ -1,8 +1,11 @@
-# Download counts for the website's statistics page
-# (https://fiery-strategy-512406-p8.web.app/stats.html). Every hour, and on
-# each release, the counts of every release file are saved to stats.json, so
-# the page reads one small file instead of GitHub's API, whose limit for a
-# visitor's connection is low.
+# Release information saved as plain files, read through
+# raw.githubusercontent.com instead of GitHub's API (whose limit for one
+# internet connection is 60 requests an hour, soon reached behind a shared
+# mobile connection):
+#   stats.json   the download counts, for the website's statistics page
+#                (https://fiery-strategy-512406-p8.web.app/stats.html);
+#   latest.json  the latest release, for the apps' update check (from 1.0.27).
+# Saved on every release, and every hour.
 name: Download statistics
 
 on:
@@ -26,21 +29,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read the download counts
+      - name: Save the latest release and the download counts
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          gh api "repos/${{ github.repository }}/releases/latest" \
+            --jq '{tag_name, draft, prerelease, published_at, body, assets: [.assets[] | {name, size, browser_download_url, digest}]}' \
+            > latest.json
           gh api --paginate "repos/${{ github.repository }}/releases?per_page=100" \
             --jq '.[] | {tag_name, published_at, draft, prerelease, assets: [.assets[] | {name, download_count}]}' \
             | jq -s '{releases: .}' > releases.json
-          # Only the time changes when the counts did not: keep the old file then.
-          if [ -f stats.json ] && jq -e --slurpfile new releases.json '.releases == $new[0].releases' stats.json > /dev/null; then
+          # The counts keep their old time when they did not change.
+          if ! { [ -f stats.json ] && jq -e --slurpfile new releases.json '.releases == $new[0].releases' stats.json > /dev/null; }; then
+            jq --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '. + {generated_at: $at}' releases.json > stats.json
+          fi
+          rm releases.json
+          git add stats.json latest.json
+          if git diff --cached --quiet; then
             echo "No change"
             exit 0
           fi
-          jq --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '. + {generated_at: $at}' releases.json > stats.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stats.json
-          git commit -m "Download statistics"
+          git commit -m "Release information"
           git push
