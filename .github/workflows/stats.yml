@@ -1,0 +1,46 @@
+# Download counts for the website's statistics page
+# (https://fiery-strategy-512406-p8.web.app/stats.html). Every hour, and on
+# each release, the counts of every release file are saved to stats.json, so
+# the page reads one small file instead of GitHub's API, whose limit for a
+# visitor's connection is low.
+name: Download statistics
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the download counts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate "repos/${{ github.repository }}/releases?per_page=100" \
+            --jq '.[] | {tag_name, published_at, draft, prerelease, assets: [.assets[] | {name, download_count}]}' \
+            | jq -s '{releases: .}' > releases.json
+          # Only the time changes when the counts did not: keep the old file then.
+          if [ -f stats.json ] && jq -e --slurpfile new releases.json '.releases == $new[0].releases' stats.json > /dev/null; then
+            echo "No change"
+            exit 0
+          fi
+          jq --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '. + {generated_at: $at}' releases.json > stats.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.json
+          git commit -m "Download statistics"
+          git push
