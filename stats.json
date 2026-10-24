@@ -1,0 +1,237 @@
+{
+  "releases": [
+    {
+      "assets": [
+        {
+          "download_count": 4,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Android-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Android.apk"
+        },
+        {
+          "download_count": 4,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Windows-Setup.exe"
+        },
+        {
+          "download_count": 5,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-24T11:13:31Z",
+      "tag_name": "v1.0.26"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-24T09:50:54Z",
+      "tag_name": "v1.0.25"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-24T08:51:55Z",
+      "tag_name": "v1.0.24"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-24T08:20:07Z",
+      "tag_name": "v1.0.23"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-24T07:44:58Z",
+      "tag_name": "v1.0.22"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T20:06:22Z",
+      "tag_name": "v1.0.21"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T17:16:15Z",
+      "tag_name": "v1.0.20"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 0,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T12:20:47Z",
+      "tag_name": "v1.0.19"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 0,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 2,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T08:40:16Z",
+      "tag_name": "v1.0.18"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 1,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T07:38:15Z",
+      "tag_name": "v1.0.17"
+    },
+    {
+      "assets": [
+        {
+          "download_count": 1,
+          "name": "Folio-32bit.apk"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio-Setup.exe"
+        },
+        {
+          "download_count": 1,
+          "name": "Folio.apk"
+        }
+      ],
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-23T06:32:42Z",
+      "tag_name": "v1.0.16"
+    }
+  ],
+  "generated_at": "2026-10-24T17:22:33Z"
+}
