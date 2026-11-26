@@ -7,7 +7,7 @@
           "name": "Folio-32bit.apk"
         },
         {
-          "download_count": 0,
+          "download_count": 1,
           "name": "Folio-Android-32bit.apk"
         },
         {
@@ -15,7 +15,7 @@
           "name": "Folio-Android.apk"
         },
         {
-          "download_count": 0,
+          "download_count": 2,
           "name": "Folio-Setup.exe"
         },
         {
@@ -23,7 +23,7 @@
           "name": "Folio-Windows-Setup.exe"
         },
         {
-          "download_count": 0,
+          "download_count": 2,
           "name": "Folio.apk"
         }
       ],
@@ -457,5 +457,5 @@
       "tag_name": "v1.0.16"
     }
   ],
-  "generated_at": "2026-11-26T19:01:06Z"
+  "generated_at": "2026-11-26T23:51:49Z"
 }
